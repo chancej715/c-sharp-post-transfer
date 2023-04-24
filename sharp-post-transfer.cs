@@ -5,8 +5,6 @@ var url 		= "URL";	// Receiving URL
 
 var fileName 	= Path.GetFileName(filePath);
 
-var byteData = File.ReadAllBytes(filePath);
-
 using (var content = new ByteArrayContent(byteData))
 {
 	// Read file
