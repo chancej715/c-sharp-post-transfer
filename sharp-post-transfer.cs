@@ -5,7 +5,7 @@ var url 		= "URL";	// Receiving URL
 
 var fileName 	= Path.GetFileName(filePath);
 
-using (var content = new ByteArrayContent(byteData))
+using (var multipartFormContent = new MultipartFormDataContent())
 {
 	// Read file
 	var fileStreamContent = new StreamContent(File.OpenRead(filePath));
