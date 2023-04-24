@@ -4,7 +4,8 @@ app = Flask(__name__)
 
 @app.route('/', methods=['POST'])
 def result():
-    with open("data", "wb") as file:
-        file.write(request.data)
-
-    return 'Received!' # Response.
+    for file in request.files:      
+        file = request.files[file]
+        file.save(file.filename)
+    
+    return "Success."

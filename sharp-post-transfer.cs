@@ -1,24 +1,28 @@
 using System.Net.Http.Headers;
 
-var filePath 	= @"PATH";	// File path
-var uri 		= "URL";	// Receiving server
+var filePath 	= @"PATH";	// File to transfer
+var url 		= "URL";	// Receiving URL
+
+var fileName 	= Path.GetFileName(filePath);
 
 var byteData = File.ReadAllBytes(filePath);
 
 using (var content = new ByteArrayContent(byteData))
 {
-	content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
+	// Read file
+	var fileStreamContent = new StreamContent(File.OpenRead(filePath));
 
-	var httpClient = new HttpClient();
+	// Add file
+	multipartFormContent.Add(fileStreamContent, name: fileName, fileName: fileName);
 
 	try
 	{
-		// Send bytes
-		var response = await httpClient.PostAsync(uri, content);
+		// Send POST request
+    	var httpClient = new HttpClient();
+		var response = await httpClient.PostAsync(url, multipartFormContent);
 	}
 	catch (Exception e)
 	{
-		// Transmission failed
 		Console.WriteLine(e);
 	}
 }
