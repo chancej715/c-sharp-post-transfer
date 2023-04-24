@@ -1,7 +1,7 @@
 using System.Net.Http.Headers;
 
-var filePath 	= @"PATH";	// File to transfer
-var url 		= "URL";	// Receiving URL
+var filePath	= @"PATH";	// File to transfer
+var url		= "URL";	// Receiving URL
 
 var fileName 	= Path.GetFileName(filePath);
 
@@ -15,7 +15,7 @@ using (var multipartFormContent = new MultipartFormDataContent())
 
 	try
 	{
-		// Send POST request
+	// Send POST request
     	var httpClient = new HttpClient();
 		var response = await httpClient.PostAsync(url, multipartFormContent);
 	}
