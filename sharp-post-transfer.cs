@@ -1,7 +1,7 @@
 using System.Net.Http.Headers;
 
-var filePath 	= @"PATH";						// File to transfer
-var url 		= "URL";						// Receiving URL
+var filePath 	= @"PATH";	// File to transfer
+var url 		= "URL";	// Receiving URL
 
 var fileName 	= Path.GetFileName(filePath);
 
